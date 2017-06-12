@@ -1,0 +1,3 @@
+app_user:
+    resource: "@MarkerTabsBundle/Resources/config/routing/user.yml"
+    prefix: /users

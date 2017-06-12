@@ -1,0 +1,3 @@
+imports:
+    - { resource: "@MarkerTabsBundle/Resources/config/resources/services.yml" }
+    - { resource: "@MarkerTabsBundle/Resources/config/resources/paginator.yml" }
