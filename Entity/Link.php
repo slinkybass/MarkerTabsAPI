@@ -60,9 +60,9 @@ class Link
      * @var string
      *
      * @Annotation\Groups({"link"})
-     * @ORM\Column(name="order", type="integer")
+     * @ORM\Column(name="position", type="integer")
      */
-    private $order;
+    private $position;
 
     /**
      * @var string
@@ -194,27 +194,27 @@ class Link
     }
 
     /**
-     * Set order
+     * Set position
      *
-     * @param int $order
+     * @param int $position
      *
      * @return Link
      */
-    public function setOrder($order)
+    public function setPosition($position)
     {
-        $this->order= $order;
+        $this->position= $position;
 
         return $this;
     }
 
     /**
-     * Get order
+     * Get position
      *
      * @return int
      */
-    public function getOrder()
+    public function getPosition()
     {
-        return $this->order;
+        return $this->position;
     }
 
     /**

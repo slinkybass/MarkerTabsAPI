@@ -44,14 +44,14 @@ class Tab
      * @var string
      *
      * @Annotation\Groups({"tab"})
-     * @ORM\Column(name="order", type="integer")
+     * @ORM\Column(name="position", type="integer")
      */
-    private $order;
+    private $position;
 
     /**
      * @var string
      *
-     * @Annotation\Groups({"link"})
+     * @Annotation\Groups({"tab"})
      * @ORM\Column(name="hidden", type="boolean")
      */
     private $hidden;
@@ -137,27 +137,27 @@ class Tab
     }
 
     /**
-     * Set order
+     * Set position
      *
-     * @param int $order
+     * @param int $position
      *
      * @return Tab
      */
-    public function setOrder($order)
+    public function setPosition($position)
     {
-        $this->order= $order;
+        $this->position= $position;
 
         return $this;
     }
 
     /**
-     * Get order
+     * Get position
      *
      * @return int
      */
-    public function getOrder()
+    public function getPosition()
     {
-        return $this->order;
+        return $this->position;
     }
 
     /**
