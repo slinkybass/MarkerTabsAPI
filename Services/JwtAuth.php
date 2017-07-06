@@ -23,7 +23,7 @@ class JwtAuth {
             $token = array(
                 "sub" => $user->getId(),
                 "iat" => time(),
-                "exp" => time() + (7 * 24 * 60 * 60)
+                "exp" => time() + strtotime('+1 year')
             );
             return JWT::encode($token, $this->key, $this->encodeType);
         }
