@@ -3,6 +3,6 @@ app_user_login:
     defaults: { _controller: "MarkerTabsBundle:User:login" }
     methods: POST
 app_user_one:
-    path: /{id}
+    path: /get/{id}
     defaults: { _controller: "MarkerTabsBundle:User:one", id: NULL }
     methods: GET
