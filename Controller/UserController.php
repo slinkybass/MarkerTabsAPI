@@ -30,6 +30,32 @@ class UserController extends Controller
         $data['msg'] = "Username and pass are required fields.";
         return $helpers->serializeOBJ($data, 401, $responseType);
     }
+	
+    public function verifyAction(Request $request)
+    {
+        $data = array();
+        $helpers = $this->get('app.helpers');
+        $jwt_auth = $this->get("app.jwt_auth");
+        $em = $this->getDoctrine()->getManager();
+        $responseType = $request->query->get('type', 'json');
+        $requestData = json_decode($request->getContent());
+        $auth = $request->headers->get('Authorization');
+		$user = $em->getRepository('MarkerTabsBundle:User')->getUserIDLogged($auth, $helpers);
+		$user = $em->getRepository('MarkerTabsBundle:User')->find($user);
+
+        $pass = property_exists($requestData, 'pass') ? $requestData->pass : null;
+        if (!is_null($pass)) {
+            $token = $jwt_auth->signup($user->getUsername(), hash('sha256', $pass));
+            if ($token) {
+                $data['token'] = $token;
+                return $helpers->serializeOBJ($data, 200, $responseType);
+            }
+            $data['msg'] = "Incorrect pass.";
+            return $helpers->serializeOBJ($data, 401, $responseType);
+        }
+        $data['msg'] = "Username and pass are required fields.";
+        return $helpers->serializeOBJ($data, 401, $responseType);
+    }
 
     public function oneAction(Request $request, $id = null)
     {
