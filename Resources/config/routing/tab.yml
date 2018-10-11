@@ -1,0 +1,4 @@
+app_tab_order:
+    path: /order/{id}
+    defaults: { _controller: "MarkerTabsBundle:Tab:order", id: NULL }
+    methods: POST
