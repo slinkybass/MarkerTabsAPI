@@ -1,3 +1,6 @@
 app_user:
     resource: "@MarkerTabsBundle/Resources/config/routing/user.yml"
     prefix: /user
+app_link:
+    resource: "@MarkerTabsBundle/Resources/config/routing/link.yml"
+    prefix: /link
